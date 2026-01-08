@@ -18,10 +18,12 @@ namespace Inheritance05010226
 
 		public int Age { get; set; }
 
-        protected Animal(string name, int age)
+        public string Colour { get; set; }
+        protected Animal(string name, int age, string colour)
         {
             _name = name;
             Age = age;
+            Colour = colour;
         }
         //public virtual void Speak()
         //{

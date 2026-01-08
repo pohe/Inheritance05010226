@@ -9,7 +9,7 @@ namespace Inheritance05010226
     public class Cat : Animal
     {
         public bool IsInDoor { get; set; }
-        public Cat(string name, int age, bool isIndoor) : base(name, age)
+        public Cat(string name, int age, bool isIndoor, string colour) : base(name, age, colour)
         {
             IsInDoor = isIndoor;
         }
