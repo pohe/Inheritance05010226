@@ -19,5 +19,24 @@ namespace Inheritance05010226
 
         void ShowAllAnimals();
 
+
+        //søgning - får typisk et objekt tilbage
+
+        Animal GetOldestAnimal();  //returnerer et animal med den højeste alder
+
+        //Søge funktion
+
+        int CountAnimalsByColourFor(string colour);
+        int CountAnimalsByColourWhile(string colour);
+        int CountAnimalsByColourForeach(string colour);
+        //Filtrering
+
+        List <Animal> FindAllAnimalsByColour(string colour);
+
+        List<Animal> FindAnimalsByAgeInterval(int minAge, int maxAge);
+
+        List<Animal> FindAnimalsByNameContain(string text);
+
+
     }
 }
