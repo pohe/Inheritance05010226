@@ -25,20 +25,52 @@ namespace Inheritance05010226
             }
         }
 
-        public int CountAnimalsByColourFor(string colour)
+        public int CountAnimalsByColorFor(string color)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            for (int i = 0; i < _animals.Count; i++)
+            {
+                if (_animals[i].Colour.ToLower() == color.ToLower())
+                {
+                    count++;
+                }
+            }
+            return count;
         }
+
 
         public int CountAnimalsByColourForeach(string colour)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            foreach (Animal a in _animals)
+            {
+                if (a.Colour == colour)
+                    count++;
+            }
+            return count;
         }
 
         public int CountAnimalsByColourWhile(string colour)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            int i = 0;
+            while (i < _animals.Count)
+            {
+                if (_animals[i].Colour == colour)
+                {
+                    count++;
+                }
+                i++;
+            }
+            return count;
+            // Animal animal = _animals[0];
+            //while (animal.Colour == colour)
+            //{
+            //   count++;
+            //}
+            // return count;
         }
+
 
         public void DeleteAnimal(string name)
         {
@@ -102,7 +134,16 @@ namespace Inheritance05010226
 
         public List<Animal> FindAnimalsByNameContain(string text)
         {
-            throw new NotImplementedException();
+            List<Animal> animaltext = new List<Animal>();
+            for (int i = 0; i < _animals.Count; i++)
+            {
+                if (_animals[i].Name.Contains(text))
+                {
+                    animaltext.Add(_animals[i]);
+                }
+            }
+            return animaltext;
+
         }
 
         public List<Animal> GetAll()
