@@ -24,3 +24,20 @@ foreach (Animal a in listeAfDyr)
 }
 
 Dog d2 =  (Dog) listeAfDyr[2];
+
+
+AnimalRepositoryList repo = new AnimalRepositoryList();
+repo.AddAnimal(d1);
+repo.AddAnimal(c1);
+
+List<Animal> animalAgeToPrint = repo.FindAnimalsByAgeInterval(2, 3);
+foreach(Animal a in animalAgeToPrint)
+{
+    Console.WriteLine(a.ToString());
+}
+
+Animal oldest = repo.GetOldestAnimal();
+if (oldest != null)
+{
+    Console.WriteLine(oldest);
+}

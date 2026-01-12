@@ -25,6 +25,21 @@ namespace Inheritance05010226
             }
         }
 
+        public int CountAnimalsByColourFor(string colour)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CountAnimalsByColourForeach(string colour)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CountAnimalsByColourWhile(string colour)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteAnimal(string name)
         {
             //1 udgave
@@ -58,6 +73,38 @@ namespace Inheritance05010226
 
         }
 
+        public List<Animal> FindAllAnimalsByColour(string colour)
+        {
+            List<Animal> animalsWithSpecColour = new List<Animal>();
+            foreach(Animal a in _animals)
+            {
+                if ( a.Colour == colour)
+                {
+                    animalsWithSpecColour.Add(a);
+                }
+            }
+            return animalsWithSpecColour;
+        }
+
+        public List<Animal> FindAnimalsByAgeInterval(int minAge, int maxAge)
+        {
+            List<Animal> animalAge = new List<Animal>();
+
+            foreach(Animal a in _animals)
+            {
+                if (a.Age > minAge && a.Age < maxAge)
+                {
+                    animalAge.Add(a);
+                }
+            }
+            return animalAge;
+        }
+
+        public List<Animal> FindAnimalsByNameContain(string text)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Animal> GetAll()
         {
             return _animals;
@@ -71,6 +118,35 @@ namespace Inheritance05010226
                     return animal; 
             }
             return null;
+        }
+
+        public Animal GetOldestAnimal()
+        {
+            //1. udgave
+            //Animal oldestAnimal = null;
+            //int higestAge = 0;
+            //foreach(Animal a in _animals)
+            //{
+            //    if ( a.Age > higestAge )
+            //    {
+            //        higestAge = a.Age;
+            //        oldestAnimal = a; 
+            //    }
+            //}
+            //return oldestAnimal;
+
+            //2. udgave
+            if (_animals.Count == 0)
+                return null;
+            Animal oldestAnimal = _animals[0];
+            foreach (Animal a in _animals)
+            {
+                if(a.Age > oldestAnimal.Age)
+                {
+                    oldestAnimal = a; 
+                }
+            }
+            return oldestAnimal;
         }
 
         public void ShowAllAnimals()
