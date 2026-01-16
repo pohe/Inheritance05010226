@@ -27,8 +27,27 @@ Dog d2 =  (Dog) listeAfDyr[2];
 
 
 AnimalRepositoryList repo = new AnimalRepositoryList();
-repo.AddAnimal(d1);
-repo.AddAnimal(c1);
+try
+{
+    repo.AddAnimal(d1);
+    repo.AddAnimal(c1);
+}
+catch (AnimalAllReadyExistException aex)
+{
+    Console.WriteLine(aex.Message);
+}
+catch (ArgumentException auex)
+{
+    Console.WriteLine(auex.Message);
+}
+catch (Exception exp)
+{
+    Console.WriteLine(exp.Message);
+}
+finally
+{
+    Console.WriteLine("Denne blok kommer man i altid");
+}
 
 List<Animal> animalAgeToPrint = repo.FindAnimalsByAgeInterval(2, 3);
 foreach(Animal a in animalAgeToPrint)
@@ -41,3 +60,9 @@ if (oldest != null)
 {
     Console.WriteLine(oldest);
 }
+
+
+
+//Design sekvensdiagram
+Animal foundAnimal = repo.GetAnimal("Fido");
+

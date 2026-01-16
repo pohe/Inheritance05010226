@@ -37,5 +37,7 @@ namespace Inheritance05010226
         int CountAnimalsByColourFor(string colour);
         int CountAnimalsByColourWhile(string colour);
         int CountAnimalsByColourForeach(string colour);
+
+        
     }
 }

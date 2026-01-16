@@ -21,23 +21,31 @@ namespace Inheritance05010226
         {
             if (animal!= null )
             {
+                //Animal tempAnimal = GetAnimal(animal.Name);
+                if (GetAnimal(animal.Name) != null)
+                {
+                    throw new AnimalAllReadyExistException("Animal name exist");
+                }
                 _animals.Add(animal);
+            }
+            else
+            {
+                throw new ArgumentException("Animal må ikke være null");
             }
         }
 
-        public int CountAnimalsByColorFor(string color)
+        public int CountAnimalsByColourFor(string colour)
         {
             int count = 0;
             for (int i = 0; i < _animals.Count; i++)
             {
-                if (_animals[i].Colour.ToLower() == color.ToLower())
+                if (_animals[i].Colour.ToLower() == colour.ToLower())
                 {
                     count++;
                 }
             }
             return count;
         }
-
 
         public int CountAnimalsByColourForeach(string colour)
         {

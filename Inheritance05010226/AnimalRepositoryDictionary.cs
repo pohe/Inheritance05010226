@@ -8,11 +8,20 @@ namespace Inheritance05010226
 {
     public class AnimalRepositoryDictionary : IAnimalCollection
     {
-        public int Count => throw new NotImplementedException();
+        private Dictionary<string, Animal> _animals;
+        public AnimalRepositoryDictionary()
+        {
+            _animals = new Dictionary<string, Animal>();
+        }
+        public int Count { get { return _animals.Count; } }
 
         public void AddAnimal(Animal animal)
         {
-            throw new NotImplementedException();
+            if( _animals.ContainsKey(animal.Name) )
+            {
+                throw new AnimalAllReadyExistException("Duplicate name");
+            }
+            _animals.Add(animal.Name, animal);
         }
 
         public int CountAnimalsByColourFor(string colour)
@@ -32,7 +41,7 @@ namespace Inheritance05010226
 
         public void DeleteAnimal(string name)
         {
-            throw new NotImplementedException();
+            _animals.Remove(name);
         }
 
         public List<Animal> FindAllAnimalsByColour(string colour)
@@ -70,9 +79,15 @@ namespace Inheritance05010226
             throw new NotImplementedException();
         }
 
-        public bool UpdateAnimal(string name, Animal uddateAnimal)
+        public bool UpdateAnimal(string name, Animal updateAnimal)
         {
-            throw new NotImplementedException();
+            if ( _animals.ContainsKey(name))
+            {
+                DeleteAnimal(name);
+                AddAnimal(updateAnimal);
+                return true;
+            }
+            return false;
         }
     }
 }
