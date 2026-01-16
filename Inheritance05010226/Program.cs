@@ -66,3 +66,6 @@ if (oldest != null)
 //Design sekvensdiagram
 Animal foundAnimal = repo.GetAnimal("Fido");
 
+AnimalRepositoryDictionary repo2 = new AnimalRepositoryDictionary();
+//kunne adde animals her
+List<Animal> animalByAge= repo2.FindAnimalsByAgeInterval(1, 4);

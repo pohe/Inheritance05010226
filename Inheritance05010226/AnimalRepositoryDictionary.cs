@@ -51,7 +51,41 @@ namespace Inheritance05010226
 
         public List<Animal> FindAnimalsByAgeInterval(int minAge, int maxAge)
         {
-            throw new NotImplementedException();
+            List<Animal> animalList = new List<Animal>();
+            //foreach(Animal a in _animals.Values)
+            //{
+            //    if ( a.Age >= minAge && a.Age <= maxAge)
+            //    {
+            //        animalList.Add(a);
+            //    }
+            //}
+
+            //For
+            //List<Animal> allAnimals = _animals.Values.ToList();
+            //for(int i =0; i<allAnimals.Count;i++)
+            //{
+            //    if (allAnimals[i].Age >= minAge && allAnimals[i].Age <= maxAge)
+            //    {
+            //        animalList.Add(allAnimals[i]);
+            //    }
+            //}
+
+            //While
+            List<Animal> allAnimals = _animals.Values.ToList();
+            int i = 0;
+            while(i < allAnimals.Count )
+            {
+                if (allAnimals[i].Age >= minAge && allAnimals[i].Age <= maxAge)
+                {
+                    animalList.Add(allAnimals[i]);
+                }
+                i++;
+            }
+            
+            
+            
+            
+            return animalList;
         }
 
         public List<Animal> FindAnimalsByNameContain(string text)
